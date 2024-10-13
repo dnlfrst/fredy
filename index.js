@@ -35,7 +35,7 @@ setInterval(
             .forEach(async (prov) => {
               const pro = fetchedProvider.find((fp) => fp.metaInformation.id === prov.id);
               pro.init(prov, job.blacklist);
-              await new FredyRuntime(pro.config, job.notificationAdapter, prov.id, job.id, similarityCache).execute();
+              await new FredyRuntime(pro.config, job.notificationAdapter, prov.id, prov.name, job.id, similarityCache).execute();
               setLastJobExecution(job.id);
             });
         });
